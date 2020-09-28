@@ -105,13 +105,12 @@
   background: none;
 }
 /* about section styling */
+
+/* same code area */
 section{
   padding: 100px 0;
 }
-.about{
-  font-family: "Poppins", sans-serif;
-}
-.about .title{
+section .title{
   position: relative;
   text-align: center;
   font-size: 40px;
@@ -120,7 +119,7 @@ section{
   padding-bottom: 20px;
   font-family: "ubuntu", sans-serif;
 }
-.about .title::before{
+section .title::before{
   content: "";
   position: absolute;
   bottom: 0;
@@ -130,8 +129,7 @@ section{
   height: 3px;
   background-color: #111;
 }
-.about .title::after{
-  content: "who I am";
+section .title::after{
   font-size: 20px;
   position: absolute;
   bottom: -12px;
@@ -141,7 +139,16 @@ section{
   background-color: #fff;
   color: crimson;
 }
-.about .about-content{
+
+.about, .project, .skill{
+  font-family: "Poppins", sans-serif;
+}
+.about .title::after{
+  content: "who I am";
+}
+.about .about-content,
+.project .project-content,
+.skill .skill-content{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -186,6 +193,61 @@ section{
   background: none;
 }
 
+.project{
+  background: #111;
+  color: #fff;
+}
+.project .title::before{
+  background-color: #fff;
+}
+.project .title::after{
+  content: "what I made";
+  background-color: #000;
+}
+.project .project-content .card{
+  width: calc(33% - 20px);
+  background: #222;
+  text-align: center;
+  padding: 20px 25px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.project .project-content .card:hover{
+  background: crimson;
+}
+.project .project-content .card i{
+  font-size: 50px;
+  color: crimson;
+  transition: all .3s ease;
+}
+.project .project-content .card:hover i{
+  color: #fff;
+}
+.project .project-content .card .project-name{
+  font-size: 25px;
+  font-weight: 500;
+  margin: 10px 0;
+}
+.project .project-content .card .box{
+  transition: all .3s ease;
+}
+.project .project-content .card .box:hover{
+  transform: scale(1.1);
+}
+
+.skill .title::after{
+  content: "what I know";
+}
+.skill .skill-content .column{
+  width: calc(50% - 30px);
+}
+
+
+
+
+
+
 
 
 
@@ -216,6 +278,10 @@ section{
    .about .about-content .left img{
     width: 350px;
     height: 350px;
+  }
+  .project .project-content .card{
+    width: calc(50% - 10px);
+    margin-bottom: 20px;
   }
 }
 
@@ -281,8 +347,16 @@ section{
   }
 
 }
+@media (max-width: 710px){
+  .project .project-content .card{
+    width: 100%;
+  }
+}
 
 @media (max-width: 451px){
+  .about .about-content .left{
+    width: 70%;
+  }
   .home .home-content .text-2{
     font-size: 65px;
   }
