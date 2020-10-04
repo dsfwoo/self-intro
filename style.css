@@ -5,6 +5,32 @@
   box-sizing: border-box;
   text-decoration: none;
 }
+html{
+  scroll-behavior: smooth;
+}
+.scroll-up-btn{
+  position: fixed;
+  width: 45px;
+  height: 45px;
+  background: orange;
+  right: 30px;
+  bottom: 10px;
+  text-align: center;
+  line-height: 45px;
+  color: #fff;
+  z-index: 10;
+  border-radius: 50%;
+  font-size: 30px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all .3s ease;
+}
+.scroll-up-btn.show{
+  bottom: 30px;
+  opacity: 1;
+  pointer-events: auto;
+}
 .max-width{
   max-width: 1300px;
   width: 100%;
@@ -20,7 +46,7 @@
 }
 .navbar.sticky{
   padding: 30px 0;
-  background: crimson;
+  background: orange;
   z-index: 10;
 }
 .navbar .max-width{
@@ -44,6 +70,7 @@
   display: inline-block;
 }
 .navbar .menu li a{
+  display: block;
   color: #fff;
   font-size: 18px;
   font-weight: 500;
@@ -51,7 +78,7 @@
   transition: all .3s;
 }
 .navbar .menu li a:hover{
-  color: crimson;
+  color: orange;
 }
 .navbar.sticky .menu li a:hover{
   color: #fff;
@@ -86,22 +113,22 @@
   margin: 5px 0;
 }
 .home .home-content .text-3 span{
-  color: crimson;
+  color: orange;
   font-weight: 500;
 }
 .home .home-content a{
   display: inline-block;
   color: #fff;
-  background: crimson;
+  background: orange;
   font-size: 25px;
   padding: 12px 36px;
   margin-top: 20px;
   border-radius: 6px;
-  border: 2px solid crimson;
+  border: 2px solid orange;
   transition: all .3s ease;
 }
 .home .home-content a:hover{
-  color: crimson;
+  color: orange;
   background: none;
 }
 /* about section styling */
@@ -137,10 +164,10 @@ section .title::after{
   transform: translateX(-50%);
   padding: 5px;
   background-color: #fff;
-  color: crimson;
+  color: orange;
 }
 
-.about, .project, .skill{
+.about, .project, .skill, .teams, .contact{
   font-family: "Poppins", sans-serif;
 }
 .about .title::after{
@@ -148,7 +175,8 @@ section .title::after{
 }
 .about .about-content,
 .project .project-content,
-.skill .skill-content{
+.skill .skill-content,
+.contact .contact-content{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -172,7 +200,7 @@ section .title::after{
   margin-bottom: 10px;
 }
 .about .about-content .right .text span{
-  color: crimson;
+  color: orange;
 }
 .about .about-content .right p{
   text-align: justify;
@@ -180,24 +208,25 @@ section .title::after{
 .about .about-content .right a{
   display: inline-block;
   color: #fff;
-  background: crimson;
+  background: orange;
   font-size: 20px;
   padding: 10px 30px;
   margin-top: 20px;
   border-radius: 6px;
-  border: 2px solid crimson;
+  border: 2px solid orange;
   transition: all .3s ease;
 }
 .about .about-content .right a:hover{
-  color: crimson;
+  color: orange;
   background: none;
 }
-
-.project{
+/* project section styling */
+.project, .teams{
   background: #111;
   color: #fff;
 }
-.project .title::before{
+.project .title::before,
+.teams .title::before{
   background-color: #fff;
 }
 .project .title::after{
@@ -214,11 +243,11 @@ section .title::after{
   transition: all .3s ease;
 }
 .project .project-content .card:hover{
-  background: crimson;
+  background: orange;
 }
 .project .project-content .card i{
   font-size: 50px;
-  color: crimson;
+  color: orange;
   transition: all .3s ease;
 }
 .project .project-content .card:hover i{
@@ -235,16 +264,190 @@ section .title::after{
 .project .project-content .card .box:hover{
   transform: scale(1.1);
 }
-
+/* skill section styling */
 .skill .title::after{
   content: "what I know";
 }
 .skill .skill-content .column{
-  width: calc(50% - 30px);
+  width: calc(50% - 100px);
+}
+.skill .skill-content .left .text{
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.skill .skill-content .right{
+  display: flex;
+  flex-wrap: wrap;
+}
+.skill .skill-content .right .box:nth-child(odd){
+  margin-top: 80px;
+}
+.skill .skill-content .right img{
+  width: 80px;
+  height: 80px;
+  vertical-align: middle;
+  object-fit: cover;
+}
+/* team section styling */
+.teams .title::after{
+  content: "who with me";
+  background: #000;
+}
+.teams .carousel .card{
+  background: #222;
+  border-radius: 6px;
+  padding: 25px 35px;
+  text-align: center;
+  transition: all .3s ease;
+}
+.teams .carousel .card:hover{
+  background: orange;
+}
+.teams .carousel .card .text{
+  font-size: 25px;
+  font-weight: 500;
+  margin: 10px 0 7px 0;
+}
+.teams .carousel .card .box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all .3s ease;
+}
+.teams .carousel .card:hover .box{
+  transform: scale(1.05);
+}
+.teams .carousel .card img{
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid orange;
+  transition: all .3s ease;
+}
+.teams .carousel .card:hover img{
+  border-color: #fff;
+}
+.owl-dots{
+  text-align: center;
+  margin-top: 20px;
+}
+.owl-dot{
+  width: 13px;
+  height: 13px;
+  outline: none !important;
+  border-radius: 50%;
+  border: 2px solid orange !important;
+  margin: 0 5px;
+  transition: all .3s ease;
+
+}
+.owl-dot.active{
+  width: 35px;
+  border-radius: 10px;
+}
+.owl-dot.active,
+.owl-dot:hover{
+  background: orange !important;
 }
 
-
-
+.contact .title::after{
+  content: "get in touch";
+}
+.contact .contact-content .column{
+  width: calc(50% - 30px);
+}
+.contact .contact-content .left .text{
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.contact .contact-content .left p{
+  text-align: justify;
+}
+.contact .contact-content .left .icons{
+  margin: 10px 0;
+}
+.contact .contact-content .row{
+  display: flex;
+  align-items: center;
+  height: 65px;
+}
+.contact .contact-content .row .info{
+  margin-left: 30px;
+}
+.contact .contact-content .row i{
+  font-size: 25px;
+  color: orange;
+}
+.contact .contact-content .info .head{
+  font-weight: 600;
+}
+.contact .contact-content .info .sub-title{
+  color: #333;
+}
+.contact .right .text{
+  font-size: 25px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.contact .right form .fields{
+  display: flex;
+}
+.contact .right form .fields,
+.contact .right form .field{
+  height: 45px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.contact .right textarea{
+  width: 100%;
+  resize: none;
+  padding-top: 10px;
+}
+.contact .right .textarea{
+  height: 125px;
+  margin-bottom: 15px;
+}
+.contact .right form .name{
+  margin-right: 10px;
+}
+.contact .right form .email{
+  margin-left: 10px;
+}
+.contact .right form .field input,
+.contact .right .textarea textarea{
+  width: 100%;
+  height: 100%;
+  border: 1px solid lightgrey;
+  border-radius: 6px;
+  outline: none;
+  padding: 0 15px;
+  font-size: 17px;
+  font-family: 'Poppins',sans-serif;
+}
+.contact .right form .btn{
+  height: 47px;
+  width: 170px;
+}
+.contact .right form .btn button{
+  width: 100%;
+  height: 100%;
+  border: 2px solid orange;
+  background: orange;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+.contact .right form .btn button:hover{
+  color: orange;
+  background: #fff;
+}
 
 
 
@@ -282,6 +485,10 @@ section .title::after{
   .project .project-content .card{
     width: calc(50% - 10px);
     margin-bottom: 20px;
+  }
+  .skill .skill-content .right img{
+    width: 65px;
+    height: 65px;
   }
 }
 
@@ -323,6 +530,14 @@ section .title::after{
     font-size: 23px;
     padding: 10px 30px;
   }
+  .skill .skill-content .column{
+    width: calc(50% - 30px);
+  }
+   .skill .skill-content .right img{
+    width: 60px;
+    height: 60px;
+  }
+
 
 }
 @media (max-width: 895px) {
@@ -345,14 +560,49 @@ section .title::after{
     height: 100%;
     object-fit: cover;
   }
+  .skill .skill-content .column{
+    width: 100%;
+    text-align: center;
+  }
+  .contact .contact-content .column{
+    width: 100%;
+  }
+  .skill .skill-content .left{
+    margin-bottom: 50px;
+  }
+  .skill .skill-content .right{
+    margin: 0 auto;
+  }
+   .skill .skill-content .right img{
+    width: 80px;
+    height: 80px;
+  }
 
 }
 @media (max-width: 710px){
   .project .project-content .card{
     width: 100%;
   }
+  .skill .skill-content .right img{
+    width: 60px;
+    height: 60px;
+  }
 }
-
+@media (max-width: 528px){
+  .skill .skill-content .right img{
+    width: 125px;
+    height: 125px;
+  }
+  .skill .skill-content .right .box:nth-child(odd){
+    margin-top: 125px;
+  }
+  .skill .skill-content .right .box:nth-child(even){
+    margin-left: auto;
+  }
+  .skill .skill-content .right .box:last-child{
+    margin: 0 0 0 auto;
+  }
+}
 @media (max-width: 451px){
   .about .about-content .left{
     width: 70%;
