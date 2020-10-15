@@ -295,6 +295,10 @@ section .title::after{
   vertical-align: middle;
   object-fit: cover;
 }
+.skill .skill-content .left .function-part,
+.skill .skill-content .left .layout-part{
+  color: red;
+}
 /* team section styling */
 .teams .title::after{
   content: "who with me";
@@ -364,7 +368,7 @@ section .title::after{
   content: "get in touch";
 }
 .contact .contact-content .column{
-  width: calc(50% - 30px);
+  width: 100%;
 }
 .contact .contact-content .left .text{
   font-size: 20px;
@@ -376,6 +380,8 @@ section .title::after{
 }
 .contact .contact-content .left .icons{
   margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
 }
 .contact .contact-content .row{
   display: flex;
