@@ -234,35 +234,41 @@ section .title::after{
   background-color: #000;
 }
 .project .project-content .card{
-  width: calc(33% - 20px);
+  width: calc(100% - 20px);
   background: #222;
-  text-align: center;
-  padding: 20px 25px;
   border-radius: 6px;
   cursor: pointer;
   transition: all .3s ease;
+  color: #fff;
+  text-align: center;
 }
 .project .project-content .card:hover{
   background: orange;
 }
-.project .project-content .card i{
-  font-size: 50px;
-  color: orange;
-  transition: all .3s ease;
-}
-.project .project-content .card:hover i{
-  color: #fff;
+.project .project-content .card img{
+  width: 100%;
+  object-fit: cover;
 }
 .project .project-content .card .project-name{
   font-size: 25px;
   font-weight: 500;
   margin: 10px 0;
 }
-.project .project-content .card .box{
-  transition: all .3s ease;
+.project .project-content .card .project-name small{
+  font-size: 20px;
 }
-.project .project-content .card .box:hover{
-  transform: scale(1.1);
+.project .project-content .card .box{
+  padding: 20px 25px;
+  transition: color .3s ease;
+}
+.project .project-content .card:hover .box{
+  color: #000;
+}
+.project .project-content .text > div{
+  text-align: left;
+  max-width: 480px;
+  margin: auto;
+  width: 100%;
 }
 /* skill section styling */
 .skill .title::after{
@@ -300,6 +306,7 @@ section .title::after{
   padding: 25px 35px;
   text-align: center;
   transition: all .3s ease;
+  height: 350px;
 }
 .teams .carousel .card:hover{
   background: orange;
@@ -482,10 +489,6 @@ section .title::after{
     width: 350px;
     height: 350px;
   }
-  .project .project-content .card{
-    width: calc(50% - 10px);
-    margin-bottom: 20px;
-  }
   .skill .skill-content .right img{
     width: 65px;
     height: 65px;
@@ -604,8 +607,14 @@ section .title::after{
   }
 }
 @media (max-width: 451px){
+  .home .home-content .text-3 {
+    font-size: 60px;
+  }
   .about .about-content .left{
     width: 70%;
+  }
+  .about .about-content .right .text{
+    font-size: 32px;
   }
   .home .home-content .text-2{
     font-size: 65px;

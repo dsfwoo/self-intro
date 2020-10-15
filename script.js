@@ -25,7 +25,7 @@ $(document).ready(function () {
     loop: true
   })
   new Typed(".typing-2", {
-    strings: ["Blogger", "Developer", "FrontEnd"],
+    strings: ["Blogger", "Developer", "Fullstack"],
     typeSpeed: 100,
     backSpeed: 60,
     loop: true
